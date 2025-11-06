@@ -1,4 +1,4 @@
-name: Sequential Workflow
+name: Parallel test workflow
 
 on: [push]
 
@@ -8,18 +8,50 @@ jobs:
     steps:
     - name: Check code
       uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '6.0.x'
+
     - name: Build project
       run: dotnet build CalculatorProject/src/CalculatorLib/CalculatorLib.csproj
   
-  test: 
+
+  # debug config
+  test-debug: 
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
         uses: actions/checkout@v4
-      - name: Run tests
+
+      - name: setup dotnet
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: '6.0.x'
+
+      - name: build in debug
+        run: dotnet build --configuration Debug
+
+      - name: Run debug tests
         run: dotnet test CalculatorProject/test/CalculatorTests/CalculatorTests.csproj
+
+  #release config
+  test-release: 
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: build in release
+        run: dotnet build --configuration Release
+
+      - name: run release tests
+        run: dotnet test --configuration Release --no-build
