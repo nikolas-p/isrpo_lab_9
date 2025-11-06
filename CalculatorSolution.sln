@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CalculatorProject", "CalculatorProject", "{9C640C17-503E-436F-B130-9F3732927406}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1FC66A22-2704-4201-A4DC-904CDE530D3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTests", "CalculatorProject\test\CalculatorTests\CalculatorTests.csproj", "{3915CC51-E7C6-4CAF-8743-24FDC458CC6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3C67390B-E3FF-4A21-8370-C9443C7A84E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLib", "CalculatorProject\src\CalculatorLib\CalculatorLib.csproj", "{88A06521-4898-4A28-9AB3-CC23A88D0D1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3915CC51-E7C6-4CAF-8743-24FDC458CC6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3915CC51-E7C6-4CAF-8743-24FDC458CC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3915CC51-E7C6-4CAF-8743-24FDC458CC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3915CC51-E7C6-4CAF-8743-24FDC458CC6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A06521-4898-4A28-9AB3-CC23A88D0D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A06521-4898-4A28-9AB3-CC23A88D0D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A06521-4898-4A28-9AB3-CC23A88D0D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A06521-4898-4A28-9AB3-CC23A88D0D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FC66A22-2704-4201-A4DC-904CDE530D3E} = {9C640C17-503E-436F-B130-9F3732927406}
+		{3915CC51-E7C6-4CAF-8743-24FDC458CC6C} = {1FC66A22-2704-4201-A4DC-904CDE530D3E}
+		{3C67390B-E3FF-4A21-8370-C9443C7A84E3} = {9C640C17-503E-436F-B130-9F3732927406}
+		{88A06521-4898-4A28-9AB3-CC23A88D0D1C} = {3C67390B-E3FF-4A21-8370-C9443C7A84E3}
+	EndGlobalSection
+EndGlobal
