@@ -1,0 +1,46 @@
+name: artifacts with multiple configurations
+
+on:
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  DOTNET_VERSION: '6.0.x'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]  # Матрица конфигураций
+    
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v4
+    
+    - name: setup dotner
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: restore dependencies
+      run: dotnet restore
+    
+    - name: build with configuration
+      run: dotnet build --configuration ${{ matrix.configuration }} --no-restore --verbosity minimal
+    
+    - name: run tests
+      run: dotnet test --configuration ${{ matrix.configuration }} --no-build --verbosity normal
+    
+    - name: publish application
+      run: dotnet publish --configuration ${{ matrix.configuration }} --no-build --output ./publish/${{ matrix.configuration }}
+    
+    - name: list publish directory contents
+      run: ls -la ./publish/${{ matrix.configuration }}/
+    
+    - name: upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-${{ matrix.configuration }}
+        path: ./publish/${{ matrix.configuration }}/
+        retention-days: 1
