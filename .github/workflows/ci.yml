@@ -9,7 +9,7 @@ jobs:
     - name: Check code
       uses: actions/checkout@v4
     - name: Setup .NET
-      uses: action/setup-dotnet@v4
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.0'
     - name: Build project
@@ -20,6 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
       - name: Run tests
         run: dotnet test CalculatorProject/test/CalculatorTests/CalculatorTests.csproj
